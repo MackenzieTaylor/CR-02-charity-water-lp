@@ -1,19 +1,221 @@
-/* charity: water Brand Colors & Fonts
-
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
-
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
-
-Fonts:
-- Proxima Nova
-- Avenir
-
+/*
+  Charity: water Landing Page CSS
+  This stylesheet styles the landing page for Charity: water using brand colors, layout best practices, and beginner-friendly CSS.
 */
+
+/* General Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Makes padding and border not add to width/height */
+  font-family: 'Avenir', sans-serif; /* Use clean, modern font */
+}
+
+body {
+  line-height: 1.6; /* Improve readability */
+  background-color: #CBCCD1; /* Set background to CW light gray */
+  color: #1a1a1a; /* Default text color */
+}
+
+/* Header and Navigation */
+header {
+  background-color: #ffffff; /* Brand yellow */
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between; /* Push logo left, nav right */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+/* Navigation links */
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Only change nav link color on hover, not the donate button */
+.nav-links a:hover {
+  color: #CBCCD1; /* CW Light Gray for nav link hover */
+}
+
+/* Donate button styles */
+.donate-button {
+  background-color: #77A8BB;
+  color: #1a1a1a; /* CW Dark Gray */
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Fix: Make donate button hover color white and background yellow.
+   Use a more specific selector to override nav link hover. */
+.nav-links .donate-button:hover {
+  color: #FFFFFF !important; /* Force white font for donate button hover */
+  background-color: #FFC907;
+}
+
+/* Hero Section */
+.hero-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+    url(img/charitywater_Zimbabwe_2022_CG-7848.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Donation Box */
+.donation-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.donation-box h2 {
+  margin-bottom: 1rem;
+}
+
+.donation-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.donation-options button {
+  background-color: #CBCCD1; /* CW Light Gray */
+  color: #1a1a1a; /* CW Dark Gray */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donation-options button:hover {
+  background-color: #FFC907; /* CW Yellow on hover */
+  color: white; /* Font color changes to white on hover */
+}
+
+.donation-options .selected {
+  background-color: #FFC907; /* CW Yellow */
+  color: #1a1a1a;
+}
+
+/* Change font color to white when hovering over the selected button */
+.donation-options .selected:hover {
+  color: white;
+}
+
+.give-button {
+  display: inline-block;
+  background-color: #FFC907; /* CW Yellow */
+  color: #1a1a1a; /* CW Dark Gray */
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.give-button:hover {
+  background-color: #FFC907; /* CW Yellow on hover */
+  color: white; /* Font color changes to white on hover */
+}
+
+.donation-note {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Colorful Sections */
+#impact {
+  background-color: #FFC907; /* CW Yellow */
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+#about {
+  background-color: #003366; /* CW Dark Blue */
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+#mission {
+  background-color: #77A8BB; /* CW Light Blue */
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+#donate {
+  background-color: #BF6C46; /* CW Brick */
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .donation-options {
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .give-button {
+    width: 100%;
+  }
+}
